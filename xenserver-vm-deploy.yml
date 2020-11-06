@@ -34,11 +34,9 @@
 
     - name: Set vcpu count max
       command: xe vm-param-set VCPUs-max={{ vcpus }} uuid={{ vmuuid.stdout }}
-      when: vcpus >= "2"
 
     - name: Set vcpu count at startup
       command: xe vm-param-set VCPUs-at-startup={{ vcpus }} uuid={{ vmuuid.stdout }}
-      when: vcpus >= "2"
 
     - name: Get the UUID of the disk
       command: xe vm-disk-list vbd-params=device=xvda uuid={{ vmuuid.stdout }} --minimal
